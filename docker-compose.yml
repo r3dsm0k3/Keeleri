@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+    k-nginx:
+      build:
+        context: ./
+        dockerfile: NginxDockerfile
+      depends_on:
+          - k-node
+      links:
+          - k-node:k-node
+      ports:
+          - "80:80"
+      image: k/nginx
+      container_name: k-nginx
+
+    k-node:
+      build:
+        context: ./
+        dockerfile: NodeDockerfile
+      volumes:
+        - ./:/src
+      depends_on:
+          - k-redis
+          - k-mongo
+      links:
+          - k-redis
+          - k-mongo
+      ports:
+          - "7337:7337"
+      environment:
+          - NODE_ENV=development
+      image: k/node
+      container_name: k-node
+
+    k-redis:
+        image: redis:alpine
+        ports:
+            - "6379"
+        container_name: k-redis
+
+    k-mongo:
+        image: mongo
+        ports:
+            - "27017"
+        container_name: k-mongo
+        volumes:
+          - /Users/r3dsm0k3/keeleri_db:/data/db
