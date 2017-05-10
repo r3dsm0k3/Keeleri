@@ -15,11 +15,12 @@ Getting Started.
   > **Note:**
   This is going to take a while since it has to download the root fs, build the images and run it. Hopefully by the end of it, you should have a working hackathon starter ready. 
 
+If everything is successfull you should have your node server running on 7337 and 80 would be used by nginx as the reverse proxy for node server. Happy hacking!
 
 Basic structure of the application
 --------------
  - Adding a route and its handler
-    - create your new controller page in the /app/controllers/
+    - create your new controller page in the /app/controllers
     - add the corresponding route in /app/routes 
     - add the view as ejs file in the /app/views folder
     > Check the examples in the corresponding folder.
