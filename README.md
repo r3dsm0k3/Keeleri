@@ -1,5 +1,9 @@
+### Warning
+This is totally deprecated I would not recommend using it. Someday when I find the time, I'll rewrite it. Just use this as a reference point and nothing more. Cheers.
+
+
 # Keeleri
-Create an 'almost' production ready web application/api server. (Boilerplate+goodies)
+Boilerplate web server with express and docker.
 
 Keeleri uses Express as the web application framework, MongoDB as the database (and mongoose client) and redis for session storage.
 
